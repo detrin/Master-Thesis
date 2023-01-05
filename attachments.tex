@@ -1,0 +1,42 @@
+\chapter{Attachments}
+
+\section{Correlation function properties}
+\label{Correlation function properties}
+There is a case when we are able to simplify the correlation function to the form similar to \ref{correlation_function_proper} and that is when we select exiton basis for system and used properties of interaction Hamiltonian in interaction picture as shown in section \ref{Aggregate with LHO bath}
+\begin{equation}
+\label{correlation_function_1st_compact_1}
+    \begin{aligned}
+    &\operatorname{tr}_B \left\{ \hat{H}_{I, \alpha \beta}(t_1) \hat{H}_{I, \gamma \delta}(t_2) \hat{w}_{eq}\right\} = \\
+    &\quad \quad = e^{i \omega_{\alpha \beta}t_1 + i\omega_{\gamma \delta} t_2}\operatorname{tr}_B \left\{ \hat{U}_B^\dagger (t_1)\Delta \hat{V}_{\alpha \beta} \hat{U}_B (t_1) \hat{U}_B^\dagger (t_2) \Delta \hat{V}_{\gamma \delta} \hat{U}_B (t_2)\hat{w}_{eq}\right\} \\
+    &\quad \quad = e^{i \omega_{\alpha \beta}t_1 + i\omega_{\gamma \delta} t_2}\operatorname{tr}_B \left\{ \hat{U}_B^\dagger (t_1)\Delta \hat{V}_{\alpha \beta} \hat{U}_B (t_1) \hat{U}_B^\dagger (t_2) \Delta \hat{V}_{\gamma \delta} \hat{w}_{eq} \hat{U}_B (t_2)\right\} \\
+    &\quad \quad = e^{i \omega_{\alpha \beta }t_1 + i\omega_{\gamma \delta} t_2}\operatorname{tr}_B \left\{ \hat{U}_B^\dagger (t_1 - t_2)\Delta \hat{V}_{\alpha \beta} \hat{U}_B (t_1 - t_2) \Delta \hat{V}_{\gamma \delta} \hat{w}_{eq} \right\} \\
+    &\quad \quad = e^{i \omega_{\alpha \beta}t_1 + i\omega_{\gamma \delta} t_2}\operatorname{tr}_B \left\{ \Delta \hat{V}_{\alpha \beta}(t_1 - t_2) \Delta \hat{V}_{\gamma \delta} \hat{w}_{eq} \right\}, \\
+    \end{aligned}
+\end{equation}
+where in the second line we used the fact that the evolution operator of system is diagonal and frequencies are defined in section \ref{Aggregate with LHO bath}. In the third row we used the equilibrium property of the bath which stays that $\hat{U}_B^\dagger(t) \hat{w}_{eq} \hat{U}_B(t) = \hat{w}_{eq}$. In the next row we used the fact that we can rotate operators under the trace sign and in the last row we wrote part of interaction Hamiltonian in interaction picture in more compact form that can be also written as correlation function of one time variable
+\begin{equation}
+\label{correlation_function_1st_compact_2}
+    \begin{aligned}
+    C_{\alpha \beta \gamma \delta}(t) &= \operatorname{tr}_B \left\{ \Delta \hat{V}_{\alpha \beta}(t) \Delta \hat{V}_{\gamma \delta} \hat{w}_{eq} \right\}.\\
+    \end{aligned}
+\end{equation}
+
+Similarly, we can discuss the correlation function of the second order in a similar fashion. 
+Rearranging the evolution operators of the bath will lead us to the following form
+\begin{equation}
+\label{correlation_function_1st_compact_2}
+    \begin{aligned}
+    &C_{\alpha \beta \gamma \delta \mu \nu \epsilon \eta}(t_1, t_2, t_3, t_4) = e^{i \omega_{\alpha \beta}t_1 + i\omega_{\gamma \delta} t_2 + i\omega_{\mu \nu} t_3 i\omega_{\epsilon \eta} t_4} \times \\
+    &\quad \quad \quad \quad \times \operatorname{tr}_B \Big\{ \hat{U}_B^\dagger (t_1-t_4) \Delta \hat{V}_{\alpha \beta} \hat{U}_B (t_2-t_1) \Delta \hat{V}_{\gamma \delta}  \\
+    &\quad \quad \quad \quad \quad \quad \:\:  \hat{U}_B^\dagger (t_3-t_2) \Delta \hat{V}_{\mu \nu} \hat{U}_B (t_3-t_4) \Delta \hat{V}_{\epsilon \eta} \hat{w}_{eq}\Big\}. \\
+    \end{aligned}
+\end{equation}
+The trace over bath DOF with all operators inside is in fact dependent only on three-time variables, for example setting $\tau_1 = t_1 - t_4$, $\tau_2 = t_2 - t_1$ and $\tau_3 = t_3 - t_2$ will lead us to the following
+\begin{equation}
+\label{correlation_function_1st_compact_2}
+    \begin{aligned}
+    &C_{\alpha \beta \gamma \delta \mu \nu \epsilon \eta}(\tau_1, \tau_2, \tau_3) =  \\
+    &\quad = \operatorname{tr}_B \Big\{ \hat{U}_B^\dagger (\tau_1) \Delta \hat{V}_{\alpha \beta} \hat{U}_B (\tau_2) \Delta \hat{V}_{\gamma \delta}\hat{U}_B^\dagger (\tau_3) \Delta \hat{V}_{\mu \nu} \hat{U}_B (\tau_1 - \tau_2 + \tau_3) \Delta \hat{V}_{\epsilon \eta} \hat{w}_{eq}\Big\}. \\
+    \end{aligned}
+\end{equation}
+Therefore we showed that the correlation function of first order is in fact function of one time variable and the correlation function of the second order is a function of three time variables. 

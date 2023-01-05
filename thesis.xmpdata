@@ -1,0 +1,7 @@
+% Metadata to be stored in PDF, see documentation of the pdfx package for more details.
+
+\Author{Daniel Herman}
+\Title{Influence of intra-molecular vibrational modes on excitation energy transfer in molecular aggregates} 
+\Keywords{open quantum systems\sep quantum master equation\sep vibrational modes\sep energy transfer\sep molecular aggregates}
+\Subject{The energy transfer in molecular aggregates is generally hard to describe in a simple yet effective manner. There is often a trade-off between the accuracy of simulated results and the level of understanding of the underlying physics. To understand the evolution of a system with electronic degrees of freedom, understanding the influence of the system's evolution on the evolution of the bath is also required. To obtain an insight into the bath evolution, we introduce an exact factorization of the density matrix elements representing an entangled state of the bath and the system. We leverage this factorization to derive iterative quantum master equations. Iterative treatment of bath evolution is then used to derive a corrected memory kernel with correlation functions in a local basis with the assumption of linear harmonic oscillators as modes of the bath. This approach attempts to improve existing perturbative master equations in a regime of weak interaction between the system and the bath. To judge the improvement achieved, we apply the theory to systems with the finite bath of small size.}
+\Publisher{Charles University}

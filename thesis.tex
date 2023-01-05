@@ -1,0 +1,190 @@
+%%% The main file. It contains definitions of basic parameters and includes all other parts.
+
+%% Settings for single-side (simplex) printing
+% Margins: left 40mm, right 25mm, top and bottom 25mm
+% (but beware, LaTeX adds 1in implicitly)
+\documentclass[12pt,a4paper,fleqn]{report}
+\setlength\textwidth{145mm}
+\setlength\textheight{247mm}
+\setlength\oddsidemargin{15mm}
+\setlength\evensidemargin{15mm}
+\setlength\topmargin{0mm}
+\setlength\headsep{0mm}
+\setlength\headheight{0mm}
+% \openright makes the following text appear on a right-hand page
+\let\openright=\clearpage
+
+%% Settings for two-sided (duplex) printing
+% \documentclass[12pt,a4paper,twoside,openright]{report}
+% \setlength\textwidth{145mm}
+% \setlength\textheight{247mm}
+% \setlength\oddsidemargin{14.2mm}
+% \setlength\evensidemargin{0mm}
+% \setlength\topmargin{0mm}
+% \setlength\headsep{0mm}
+% \setlength\headheight{0mm}
+% \let\openright=\cleardoublepage
+
+%% Generate PDF/A-2u
+\usepackage[a-2u]{pdfx}
+
+%% Character encoding: usually latin2, cp1250 or utf8:
+\usepackage[utf8]{inputenc}
+
+
+%% Prefer Latin Modern fonts
+\usepackage{lmodern}
+
+%% Further useful packages (included in most LaTeX distributions)
+\usepackage{amsmath}        % extensions for typesetting of math
+\usepackage{amssymb}        % scaling font
+\usepackage{amsfonts}       % math fonts
+\usepackage{amsthm}         % theorems, definitions, etc.
+\usepackage{bbding}         % various symbols (squares, asterisks, scissors, ...)
+\usepackage{bm}             % boldface symbols (\bm)
+\usepackage{graphicx}       % embedding of pictures
+\usepackage{fancyvrb}       % improved verbatim environment
+\usepackage{natbib}         % citation style AUTHOR (YEAR), or AUTHOR [NUMBER]
+\usepackage[nottoc]{tocbibind} % makes sure that bibliography and the lists
+			    % of figures/tables are included in the table
+			    % of contents
+\usepackage{dcolumn}        % improved alignment of table columns
+\usepackage{booktabs}       % improved horizontal lines in tables
+\usepackage{paralist}       % improved enumerate and itemize
+\usepackage{xcolor}         % typesetting in color
+
+% my own packages
+\usepackage{physics}
+\usepackage{acro}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{bbm}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{optidef}
+\usepackage{verbatim} 
+%\usepackage{unicode-math}
+\usepackage{bbold}
+\usepackage{pstricks,pst-node,pst-eucl} % diagrams
+\usetikzlibrary{positioning}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage[font=small,labelfont=bf]{caption}
+\usetikzlibrary{arrows, arrows.meta}
+\usepackage{csquotes}
+
+
+\include{macros}
+
+\newsavebox{\overlongequation}
+\newenvironment{dontbotheriftheequationisoverlong}
+ {\begin{displaymath}\begin{lrbox}{\overlongequation}$\displaystyle}
+ {$\end{lrbox}\makebox[0pt]{\usebox{\overlongequation}}\end{displaymath}}
+
+%%% Basic information on the thesis
+
+% Thesis title in English (exactly as in the formal assignment)
+\def\ThesisTitle{Influence of intra-molecular vibrational modes on excitation energy transfer in molecular aggregates}
+
+\def\ThesisTitleCZ{Vliv intramolekulární vibračních módů na přenos excitační energie v molekulárních agregátech}
+
+% Author of the thesis
+\def\ThesisAuthor{Daniel Herman}
+
+% Year when the thesis is submitted
+\def\YearSubmitted{2023}
+
+% Name of the department or institute, where the work was officially assigned
+% (according to the Organizational Structure of MFF UK in English,
+% or a full name of a department outside MFF)
+\def\Department{Institute of Physics of Charles University}
+\def\DepartmentCZ{Fyzikální ústav Univerzity Karlovy}
+
+% Is it a department (katedra), or an institute (ústav)?
+\def\DeptType{Department}
+\def\DeptTypeCZ{Katedra}
+
+% Thesis supervisor: name, surname and titles
+\def\Supervisor{doc. Mgr. Tomáš Mančal, Ph.D.}
+
+% Supervisor's department (again according to Organizational structure of MFF)
+\def\SupervisorsDepartment{Institute of Physics of Charles University}
+\def\SupervisorsDepartmentCZ{ Fyzikální ústav Univerzity Karlovy}
+
+% Study programme and specialization
+\def\StudyProgramme{Physics}
+\def\StudyBranch{Biophysics and Chemical Physics}
+
+% Abstract (recommended length around 80-200 words; this is not a copy of your thesis assignment!)
+\def\Abstract{%
+The energy transfer in molecular aggregates is generally hard to describe in a simple yet effective manner. There is often a trade-off between the accuracy of simulated results and the level of understanding of the underlying physics. To understand the evolution of a system with electronic degrees of freedom, understanding the influence of the system's evolution on the evolution of the bath is also required. To obtain an insight into the bath evolution, we introduce an exact factorization of the density matrix elements representing an entangled state of the bath and the system. We leverage this factorization to derive iterative quantum master equations. Iterative treatment of bath evolution is then used to derive corrected memory kernel with correlation functions in a local basis with the assumption of linear harmonic oscillators as modes of the bath. This approach attempts to improve existing perturbative master equations in a regime of weak interaction between the system and the bath. To judge the improvement achieved, we apply the theory to systems with the finite bath of small size.
+}
+\def\AbstractCZ{%
+Přenos energie v molekulárních agregátech je obecně obtížné popsat jednoduchým, ale účinným způsobem. Často dochází ke kompromisu mezi přesností simulovaných výsledků a úrovní pochopení odpovídajících fyzikálních procesů. Pro pochopení vývoje systému s elektronovými stupni volnosti je také nutné porozumět vlivu systému na vývoj lázně. K získání vhledu do vývoje lázně zavádíme exaktní faktorizaci elementů matice hustoty reprezentující provázaný stav lázně a systému. Této faktorizace využijeme k odvození iterativních řídících rovnic. Iterativní popis vývoje lázně pak použijeme k odvození korigovaného paměťového jádra s korelačními funkcemi v lokální bázi s předpokladem lineárních harmonických oscilátorů jako módů lázně. Tento přístup se pokouší vylepšit stávající poruchové řídící rovnice v režimu slabé interakce mezi systémem a lázní. K posouzení dosaženého vylepšení použijeme teorii na systémy s konečnou lázní malé velikosti.
+}
+
+% 3 to 5 keywords (recommended), each enclosed in curly braces
+\def\Keywords{%
+{open quantum systems}, {quantum master equation}, {vibrational modes}, {energy transfer}, {molecular aggregates} 
+}
+\def\KeywordsCZ{%
+{otevřené kvantové systémy}, {kvantová řídicí rovnice}, {vibrační módy}, {přenos energie}, {molekulární agregáty}
+}
+
+% An optional dedication: you can thank whomever you wish (your supervisor,
+% consultant, a person who lent the software, etc.)
+\def\Dedication{%
+I want to thank my supervisor Tomáš Mančal for his patience and guidance. Without those, this work would not exist. I want to also thank my dear loving parents for their support throughout the master's program. I also want to thank my friend Jakub Novotný for his insights and suggestions. Many of the ideas came to me while I was listening to Dune (Original Motion Picture Soundtrack), and it has a special place in my heart.
+
+Computational resources were supplied by the project "e-Infrastruktura CZ" (e-INFRA CZ LM2018140 ) supported by the Ministry of Education, Youth and Sports of the Czech Republic.
+
+}
+%% The hyperref package for clickable links in PDF and also for storing
+%% metadata to PDF (including the table of contents).
+%% Most settings are pre-set by the pdfx package.
+\hypersetup{unicode}
+\hypersetup{breaklinks=true}
+
+% Definitions of macros (see description inside)
+\include{macros}
+
+% Title page and various mandatory informational pages
+\begin{document}
+\include{title}
+
+%%% A page with automatically generated table of contents of the master thesis
+
+\tableofcontents
+
+%%% Each chapter is kept in a separate file
+\include{introduction}
+\include{chapters}
+\include{conclusion}
+
+%%% Bibliography
+\include{bibliography}
+
+%%% Figures used in the thesis (consider if this is needed)
+\listoffigures
+
+
+%%% Attachments to the master thesis, if any. Each attachment must be
+%%% referred to at least once from the text of the thesis. Attachments
+%%% are numbered.
+%%%
+%%% The printed version should preferably contain attachments, which can be
+%%% read (additional tables and charts, supplementary text, examples of
+%%% program output, etc.). The electronic version is more suited for attachments
+%%% which will likely be used in an electronic form rather than read (program
+%%% source code, data files, interactive charts, etc.). Electronic attachments
+%%% should be uploaded to SIS and optionally also included in the thesis on a~CD/DVD.
+%%% Allowed file formats are specified in provision of the rector no. 72/2017.
+\appendix
+\include{attachments}
+
+
+\openright
+\end{document}
